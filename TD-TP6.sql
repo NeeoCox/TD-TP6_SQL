@@ -16,3 +16,8 @@ DROP DATABASE bd_r206_banque;
 DROP DATABASE bd_r206_iutapprentissage;
 
 --.2
+CREATE DATABASE bd_iut;
+CREATE USER 'pham'@'localhost' IDENTIFIED BY 'mdp_pham';
+CREATE ROLE 'DBA';
+GRANT ALL PRIVILEGES ON *.* TO 'DBA' WITH GRANT OPTION;
+GRANT 'DBA' TO 'pham'@'localhost' ;
