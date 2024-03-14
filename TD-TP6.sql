@@ -21,3 +21,24 @@ GRANT ALL PRIVILEGES ON *.* TO pham@localhost WITH GRANT OPTION;
 /*\. "C:\Users\Administrateur\Desktop\Dossier_avec_tout\BUTnfo\Semestre 2\R2.06 Exploitation d'une base de données\TD-TP6\R206_TP1_Creation_MySQL.sql"
 \. "C:\Users\Administrateur\Desktop\Dossier_avec_tout\BUTnfo\Semestre 2\R2.06 Exploitation d'une base de données\TD-TP6\R206_TP1_Remplissage_MySQL.sql"
 */
+
+/*====Question 4====*/
+
+CREATE OR REPLACE VIEW vue_Etud_Stage_ENT
+AS 
+SELECT idEtud, nomEtud, prenomEtud
+FROM Etudiant, Stagiaire
+WHERE idEtud = etudStagiaire;
+
+SELECT idEtud, nomEtud, prenomEtud
+FROM vue_Etud_Stage_ENT;
+
+CREATE OR REPLACE VIEW vue_Etud_App_ENT
+AS 
+SELECT idEtud, nomEtud, prenomEtud
+FROM Etudiant, Apprenti
+WHERE idEtud = etudApp;
+
+SELECT idEtud, nomEtud, prenomEtud
+FROM vue_Etud_App_ENT;
+
