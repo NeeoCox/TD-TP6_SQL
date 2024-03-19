@@ -68,5 +68,10 @@ GRANT SELECT, INSERT ON bd_iut.* TO 'bd_iut_ecriture';
 
 /*====Question 7====*/
 
-GRANT 'bd_iut_lecture', 'bd_iut_ecriture' TO 'kamp'@'localhost' ;
+GRANT 'bd_iut_lecture', 'bd_iut_ecriture' TO 'kamp'@'localhost';
+
+GRANT 'bd_iut_lecture' TO 'khayata'@'localhost' ;
+GRANT INSERT, SELECT, DELETE, UPDATE On bd_iut.Etudiant TO khayata@localhost
+GRANT INSERT, SELECT, DELETE, UPDATE On bd_iut.GroupeInfo1 TO khayata@localhost;
+
 
