@@ -52,7 +52,7 @@ CREATE USER baudont@localhost IDENTIFIED BY 'mdp_baudont' ;
 
 CREATE USER fleurquin@localhost IDENTIFIED BY 'mdp_fleurquin' ;
 
-/*====Question 5====*/
+/*====Question 6====*/
 
 CREATE ROLE 'bd_iut_lecture';
 /*On revoke tout les privilege pour rien avoir*/
@@ -64,6 +64,8 @@ CREATE ROLE 'bd_iut_ecriture';
 
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'bd_iut_ecriture';
 
- GRANT SELECT, INSERT ON bd_iut.* TO 'bd_iut_ecriture';
+GRANT SELECT, INSERT ON bd_iut.* TO 'bd_iut_ecriture';
 
- 
+/*====Question 7====*/
+
+
