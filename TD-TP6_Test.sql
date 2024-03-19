@@ -6,7 +6,7 @@
 
 /*ajouter l'etudiant olimar oatchi dans le groupe b*/
 
-/*ajouter le groupe test avec khayata */
+/*crée le groupe O5 avec khayata */
 
-
+/*créer le role Class d avec kamp*/
 
