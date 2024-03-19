@@ -77,3 +77,7 @@ GRANT INSERT, SELECT, DELETE, UPDATE On bd_iut.GroupeInfo1 TO khayata@localhost;
 GRANT 'bd_iut_lecture' TO 'baudont'@'localhost' ;
 GRANT INSERT, SELECT, DELETE, UPDATE On bd_iut.vue_Etud_App_ENT TO baudont@localhost;
 
+GRANT 'bd_iut_lecture' TO 'fleurquin'@'localhost';
+GRANT SELECT(poursuiteEtudes)
+ON bd_iut.Etudiant
+TO 'fleurquin'@'localhost';
