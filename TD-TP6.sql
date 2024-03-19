@@ -81,3 +81,7 @@ GRANT 'bd_iut_lecture' TO 'fleurquin'@'localhost';
 GRANT SELECT(poursuiteEtudes)
 ON bd_iut.Etudiant
 TO 'fleurquin'@'localhost';
+
+/*====Question 8====*/
+
+/*fait*/
