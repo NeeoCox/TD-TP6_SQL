@@ -3,6 +3,7 @@ Coignard Maël
 Mellah Rayanne
 */
 
+--root@localhost
 --Q1
 --.1
 SELECT user, host FROM mysql.user;
@@ -27,6 +28,7 @@ USE db_iut;
 \. "C:\Users\Rayanne\Downloads\R206_TP1_Creation_MySQL.sql"
 \. "C:\Users\Rayanne\Downloads\R206_TP1_Remplissage_MySQL.sql"
 
+--pham@localhost
 
 --Q2
 --.4
@@ -107,3 +109,5 @@ fleurquin
 | GRANT SELECT (`poursuiteEtudes`) ON `db_iut`.`etudiant` TO `fleurquin`@`localhost` |
 | GRANT `db_iut_lecture`@`%` TO `fleurquin`@`localhost`                              |
 +------------------------------------------------------------------------------------+
+
+*/
