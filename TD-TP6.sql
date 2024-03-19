@@ -5,7 +5,7 @@ Mellah Rayanne
 
 /*====Question 2====*/
 
-/*Connexion a l'utilisateur root \connect root@localhost*/
+/*Connexion a l'utilisateur root\sql \connect root@localhost*/
 /*Creation base bd_iut : CREATE DATABASE bd_iut*/
 
 /* pour créer l'utilisarteur puis lui donner les permission on utilise ses commande*/
@@ -41,4 +41,15 @@ WHERE idEtud = etudApp;
 
 SELECT idEtud, nomEtud, prenomEtud
 FROM vue_Etud_App_ENT;
+
+/*====Question 5====*/
+
+CREATE USER kamp@localhost IDENTIFIED BY 'mdp_kamp' ;
+
+CREATE USER khayata@localhost IDENTIFIED BY 'mdp_khayata' ;
+
+CREATE USER baudont@localhost IDENTIFIED BY 'mdp_baudont' ;
+
+CREATE USER fleurquin@localhost IDENTIFIED BY 'mdp_fleurquin' ;
+
 
