@@ -8,9 +8,16 @@ Mellah Rayanne
 --.1
 SELECT user, host FROM mysql.user;
 DROP USER rian@localhost;
+DROP USER kamp@localhost;
+DROP USER khayata@localhost;
+DROP USER baudont@localhost;
+DROP USER fleurquin@localhost;
+
+
 
 SHOW DATABASES;
 
+DROP DATABASE db_iut;
 DROP DATABASE db_r206;
 DROP DATABASE db_r206_avion;
 DROP DATABASE db_r206_banque;
@@ -54,17 +61,20 @@ CREATE USER 'fleurquin'@'localhost' IDENTIFIED BY 'mdp_fleurquin';
 CREATE ROLE 'db_iut_lecture','db_iut_ecriture';
 
 GRANT SELECT ON db_iut.* TO 'db_iut_lecture';
-GRANT INSERT,CREATE,DELETE,DROP,ALTER ON db_iut.* TO 'db_iut_ecriture';
+GRANT ALL PRIVILEGES ON db_iut.* TO 'db_iut_ecriture';
+SHOW GRANTS FOR db_iut_lecture;
+
+SHOW GRANTS
 
 --.7
 GRANT 'db_iut_lecture','db_iut_ecriture' TO 'kamp'@'localhost';
 
 GRANT 'db_iut_lecture' TO 'khayata'@'localhost';
-GRANT INSERT,CREATE,DELETE,DROP,ALTER ON db_iut.Etudiant TO 'khayata'@'localhost';
-GRANT INSERT,CREATE,DELETE,DROP,ALTER ON db_iut.GroupeInfo1 TO 'khayata'@'localhost';
+GRANT ALL PRIVILEGES ON db_iut.Etudiant TO 'khayata'@'localhost';
+GRANT ALL PRIVILEGES ON db_iut.GroupeInfo1 TO 'khayata'@'localhost';
 
 GRANT 'db_iut_lecture' TO 'baudont'@'localhost';
-GRANT INSERT,CREATE,DELETE,DROP,ALTER ON db_iut.vue_Etud_App_Ent TO 'baudont'@'localhost';
+GRANT ALL PRIVILEGES ON db_iut.vue_Etud_App_Ent TO 'baudont'@'localhost';
 
 GRANT 'db_iut_lecture' TO 'fleurquin'@'localhost';
 GRANT SELECT(poursuiteEtudes) ON db_iut.Etudiant TO 'fleurquin'@'localhost';
