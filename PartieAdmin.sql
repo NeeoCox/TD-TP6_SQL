@@ -8,6 +8,7 @@ Mellah Rayanne
 --.1
 SELECT user, host FROM mysql.user;
 DROP USER rian@localhost;
+DROP USER pham@localhost;
 DROP USER kamp@localhost;
 DROP USER khayata@localhost;
 DROP USER baudont@localhost;
@@ -24,21 +25,24 @@ DROP DATABASE db_r206_banque;
 DROP DATABASE db_r206_iutapprentissage;
 
 --.2
-CREATE DATABASE db_iut;
 CREATE USER 'pham'@'localhost' IDENTIFIED BY 'mdp_pham';
 CREATE ROLE 'DBA';
 GRANT ALL PRIVILEGES ON *.* TO 'DBA' WITH GRANT OPTION;
 GRANT 'DBA' TO 'pham'@'localhost' ;
-
+SET DEFAULT ROLE ALL TO 'pham'@'localhost';
+SELECT CURRENT_ROLE();
 --.3
-USE db_iut;
-\. "C:\Users\Rayanne\Downloads\R206_TP1_Creation_MySQL.sql"
-\. "C:\Users\Rayanne\Downloads\R206_TP1_Remplissage_MySQL.sql"
+
 
 --pham@localhost
 
 --Q2
 --.4
+CREATE DATABASE db_iut;
+USE db_iut;
+\. "C:\Users\Rayanne\Downloads\R206_TP1_Creation_MySQL.sql"
+\. "C:\Users\Rayanne\Downloads\R206_TP1_Remplissage_MySQL.sql"
+
 CREATE OR REPLACE VIEW vue_Etud_Stag_Ent AS
 SELECT idEtud FROM Etudiant
 JOIN Stagiaire ON etudStagiaire = idEtud
@@ -64,7 +68,6 @@ GRANT SELECT ON db_iut.* TO 'db_iut_lecture';
 GRANT ALL PRIVILEGES ON db_iut.* TO 'db_iut_ecriture';
 SHOW GRANTS FOR db_iut_lecture;
 
-SHOW GRANTS
 
 --.7
 GRANT 'db_iut_lecture','db_iut_ecriture' TO 'kamp'@'localhost';
@@ -77,7 +80,8 @@ GRANT 'db_iut_lecture' TO 'baudont'@'localhost';
 GRANT ALL PRIVILEGES ON db_iut.vue_Etud_App_Ent TO 'baudont'@'localhost';
 
 GRANT 'db_iut_lecture' TO 'fleurquin'@'localhost';
-GRANT SELECT(poursuiteEtudes) ON db_iut.Etudiant TO 'fleurquin'@'localhost';
+CREATE OR REPLACE VIEW poursuiteEtudes_view AS SELECT poursuiteEtudes FROM Etudiant;
+GRANT ALL PRIVILEGES ON db_iut.poursuiteEtudes_view TO 'fleurquin'@'localhost';
 
 --.8
 /* 
@@ -91,24 +95,24 @@ kamp
 +------------------------------------------------------------------------+
 
 khayata
-+----------------------------------------------------------------------------------------------+
-| Grants for khayata@localhost                                                                 |
-+----------------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO `khayata`@`localhost`                                                  |
-| GRANT INSERT, DELETE, CREATE, DROP, ALTER ON `db_iut`.`etudiant` TO `khayata`@`localhost`    |
-| GRANT INSERT, DELETE, CREATE, DROP, ALTER ON `db_iut`.`groupeinfo1` TO `khayata`@`localhost` |
-| GRANT `db_iut_lecture`@`%` TO `khayata`@`localhost`                                          |
-+----------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------+
+| Grants for khayata@localhost                                            |
++-------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `khayata`@`localhost`                             |
+| GRANT ALL PRIVILEGES ON `db_iut`.`etudiant` TO `khayata`@`localhost`    |
+| GRANT ALL PRIVILEGES ON `db_iut`.`groupeinfo1` TO `khayata`@`localhost` |
+| GRANT `db_iut_lecture`@`%` TO `khayata`@`localhost`                     |
++-------------------------------------------------------------------------+
 
 
 baudont
-+---------------------------------------------------------------------------------------------------+
-| Grants for baudont@localhost                                                                      |
-+---------------------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO `baudont`@`localhost`                                                       |
-| GRANT INSERT, DELETE, CREATE, DROP, ALTER ON `db_iut`.`vue_etud_app_ent` TO `baudont`@`localhost` |
-| GRANT `db_iut_lecture`@`%` TO `baudont`@`localhost`                                               |
-+---------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------+
+| Grants for baudont@localhost                                                 |
++------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `baudont`@`localhost`                                  |
+| GRANT ALL PRIVILEGES ON `db_iut`.`vue_etud_app_ent` TO `baudont`@`localhost` |
+| GRANT `db_iut_lecture`@`%` TO `baudont`@`localhost`                          |
++------------------------------------------------------------------------------+
 
 
 fleurquin
@@ -116,7 +120,7 @@ fleurquin
 | Grants for fleurquin@localhost                                                     |
 +------------------------------------------------------------------------------------+
 | GRANT USAGE ON *.* TO `fleurquin`@`localhost`                                      |
-| GRANT SELECT (`poursuiteEtudes`) ON `db_iut`.`etudiant` TO `fleurquin`@`localhost` |
+| GRANT ALL PRIVILEGES ON `db_iut`.`poursuiteetudes_view` TO `fleurquin`@`localhost` |
 | GRANT `db_iut_lecture`@`%` TO `fleurquin`@`localhost`                              |
 +------------------------------------------------------------------------------------+
 
